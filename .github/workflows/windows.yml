@@ -1,0 +1,59 @@
+name: release
+
+on:
+  # REMOVE PUSH and change PATH TO ps1 AFTER VALIDATING FORK for LIN/WIN
+  push:
+    branches:
+      - master
+  release:
+    types: [published]
+
+jobs:
+
+  package-windows:
+    runs-on: windows-latest
+
+    env:
+      HAB_AUTH_TOKEN: ${{ secrets.HAB_AUTH_TOKEN }}
+      HAB_ORIGIN: ddowking
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Windows Biome
+        run: |
+          Set-ExecutionPolicy Bypass -Scope Process -Force
+          iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ddowking/biome/master/components/bio/install-windows.ps1'))
+
+      - name: Add Biome to Windows Path
+        run: echo "##[add-path]C:\hab\bin"
+
+      - name: Install Signing Keys
+        run: |
+          bio origin key download $env:HAB_ORIGIN
+          bio origin key download $env:HAB_ORIGIN -s -z $env:HAB_AUTH_TOKEN
+
+      # - name: Setup Studio and Tools
+      #   run: |
+      #     bio.exe studio run 'make -f ci/Makefile.windows setup'
+
+      - name: Build and Package
+        run: |
+          bio.exe studio run 'make -f ci/Makefile.windows build dist upload'
+
+      - name: Get package info
+        run: |
+          Get-Content results/bio.env | sed 's/\(.*\)=\(.*\)/::set-env name=\1::\2/'
+
+      - name: Upload Windows Biome
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: results/$pkg_name-$pkg_version-$pkg_target.zip
+          asset_name: $pkg_name-$pkg_version-$pkg_target.zip
+
+      - name: Promote to stable
+        run: |
+          bio studio run 'make -f ci/Makefile.windows promote-testing'

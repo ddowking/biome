@@ -34,7 +34,7 @@ try {
 
     # Use Biome bootstrap binary to install biome/bio from bldr
     $bio_exe_path = (Join-Path ($work_dir) "bio.exe")
-    Invoke-Command -ScriptBlock { "$bio_exe_path pkg install -fb biome/bio" }
+    & "$bio_exe_path" pkg install -fb biome/bio | Out-Null
 
     Write-Output "Installation of Biome 'bio' program complete."
 
