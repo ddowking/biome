@@ -6,10 +6,10 @@ use bio::{command::pkg::{self,
                          uninstall::{self,
                                      UninstallHookMode,
                                      UninstallSafety}},
-          config,
           error::Result as BioResult};
 use biome_api_client::BuilderAPIClient;
-use biome_common::{command::package::install::{self as install_cmd,
+use biome_common::{cli_config::CliConfig,
+                     command::package::install::{self as install_cmd,
                                                  InstallHookMode,
                                                  InstallMode,
                                                  InstallSource,
@@ -31,7 +31,7 @@ static LOGKEY: &str = "UT";
 
 fn get_auth_token() -> Option<String> {
     henv::var(AUTH_TOKEN_ENVVAR).ok()
-                                .or_else(|| config::CACHED.auth_token.clone())
+                                .or_else(|| CliConfig::cache().auth_token.clone())
 }
 
 /// Helper function for use in the Supervisor to handle lower-level

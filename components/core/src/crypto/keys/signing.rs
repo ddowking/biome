@@ -1,11 +1,11 @@
-use crate::{crypto::{hash,
-                     keys::NamedRevision,
+use crate::{crypto::{keys::NamedRevision,
                      Blake2bHash,
                      PUBLIC_SIG_KEY_VERSION,
                      SECRET_SIG_KEY_VERSION},
             error::{Error,
                     Result},
-            fs::Permissions};
+            fs::Permissions,
+            origin::Origin};
 use std::{io::Read,
           path::Path};
 
@@ -23,9 +23,9 @@ mod primitives {
 ///
 /// The resulting keys will need to be saved to a cache in order to
 /// persist.
-pub fn generate_signing_key_pair(origin_name: &str)
+pub fn generate_signing_key_pair(origin: &Origin)
                                  -> (PublicOriginSigningKey, SecretOriginSigningKey) {
-    let named_revision = NamedRevision::new(origin_name.to_string());
+    let named_revision = NamedRevision::new(origin.to_string());
     let (pk, sk) = primitives::gen_keypair();
 
     let public = PublicOriginSigningKey { named_revision: named_revision.clone(),
@@ -59,7 +59,7 @@ impl PublicOriginSigningKey {
             .map_err(|_| Error::CryptoError("Error parsing artifact hash".to_string()))?
             .parse()?; // convert to Blake2bHash
 
-        let computed_blake2b_hash = hash::hash_reader(content)?;
+        let computed_blake2b_hash = Blake2bHash::from_reader(content)?;
 
         if computed_blake2b_hash == expected_blake2b_hash {
             Ok(expected_blake2b_hash)
@@ -96,7 +96,7 @@ impl SecretOriginSigningKey {
         // string* of the Blake2b hash, NOT the hash itself! This will
         // have implications if we ever want to change in the future
         // :(
-        let hex_encoded_hash = hash::hash_file(&path)?;
+        let hex_encoded_hash = Blake2bHash::from_file(&path)?;
         Ok(self.sign_inner(hex_encoded_hash.to_string().as_bytes()))
     }
 
@@ -193,7 +193,8 @@ mod tests {
     /// maintain that behavior for backwards compatibility reasons.
     #[test]
     fn signing_inputs_case_is_significant() {
-        let (_public, secret) = generate_signing_key_pair("test-origin");
+        let origin = "test-origin".parse().unwrap();
+        let (_public, secret) = generate_signing_key_pair(&origin);
 
         let lower_case = "20590a52c4f00588c500328b16d466c982a26fabaa5fa4dcc83052dd0a84f233";
         let upper_case = "20590A52C4F00588C500328B16D466C982A26FABAA5FA4DCC83052DD0A84F233";

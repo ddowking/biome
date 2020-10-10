@@ -9,6 +9,7 @@ workspace = "../../"
 futures = { version = "*" }
 biome-sup-protocol = { path = "../sup-protocol", default-features = false }
 biome_common = { path = "../common" }
+biome_core = { path = "../core" }
 log = "*"
 prost = "*"
 termcolor = "*"
