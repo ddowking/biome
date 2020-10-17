@@ -945,55 +945,59 @@ weight = 10
   weight = 20
 
   [[menu.bioitat]]
+  title = "Origins"
+  identifier = "habitat/origins"
+  parent = "biome"
+  weight = 30
+
+  [[menu.bioitat]]
   title = "Packages"
   identifier = "habitat/packages"
   parent = "biome"
-  weight = 30
+  weight = 40
 
   [[menu.bioitat]]
   title = "Plans"
   identifier = "habitat/plans"
   parent = "biome"
-  weight = 40
+  weight = 50
 
   [[menu.bioitat]]
   title = "Services"
   identifier = "habitat/services"
   parent = "biome"
-  weight = 50
+  weight = 60
 
   [[menu.bioitat]]
   title = "Supervisors"
   identifier = "habitat/supervisors"
   parent = "biome"
-  weight = 60
+  weight = 70
 
   [[menu.bioitat]]
   title = "Studio"
   identifier = "habitat/studio"
   url = "/habitat/studio"
   parent = "biome"
-  weight = 70
-
-  [[menu.bioitat]]
-  title = "Containers"
-  identifier = "habitat/containers"
-  parent = "biome"
-  weight = 100
+  weight = 80
 
   [[menu.bioitat]]
   title = "Reference"
   identifier = "habitat/reference"
   parent = "biome"
-  weight = 80
+  weight = 90
+
+  [[menu.bioitat]]
+  title = "Containers"
+  identifier = "habitat/containers"
+  parent = "biome"
+  weight = 200
 
   [[menu.bioitat]]
   title = "Diagrams"
   identifier = "habitat/diagrams"
   parent = "biome"
   weight = 500
-
-
 
 ####
 # End Biome Menu

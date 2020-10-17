@@ -73,7 +73,7 @@ pub fn get(feature_flags: FeatureFlag) -> App<'static, 'static> {
                                    .setting(AppSettings::Hidden);
 
     clap_app!(bio =>
-        (about: "\"A Biome is the natural environment for your services\" - Alan Turing")
+        (about: "Patents: https://chef.io/patents\n\"A Biome is the natural environment for your services\" - Alan Turing")
         (version: super::VERSION)
         (author: "\nThe Biome Maintainers <humans@biome.sh>\n")
         (@setting GlobalVersion)

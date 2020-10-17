@@ -1,10 +1,10 @@
 # Habitat CHANGELOG
 
-<!-- latest_release 1.6.162 -->
-## [1.6.162](https://github.com/habitat-sh/habitat/tree/1.6.162) (2020-09-29)
+<!-- latest_release 1.6.169 -->
+## [1.6.169](https://github.com/habitat-sh/habitat/tree/1.6.169) (2020-10-16)
 
 #### Merged Pull Requests
-- Fix e2e tests [#7934](https://github.com/habitat-sh/habitat/pull/7934) ([davidMcneil](https://github.com/davidMcneil))
+- updating codeowners due to team departures [#7944](https://github.com/habitat-sh/habitat/pull/7944) ([jeremymv2](https://github.com/jeremymv2))
 <!-- latest_release -->
 
 <!-- release_rollup since=1.6.139 -->
@@ -14,6 +14,15 @@
 - an API retry pattern [#7874](https://github.com/habitat-sh/habitat/pull/7874) ([jeremymv2](https://github.com/jeremymv2)) <!-- 1.6.150 -->
 
 #### Merged Pull Requests
+- updating codeowners due to team departures [#7944](https://github.com/habitat-sh/habitat/pull/7944) ([jeremymv2](https://github.com/jeremymv2)) <!-- 1.6.169 -->
+- Revert &quot;Merge pull request #7923 from habitat-sh/dmcneil/ctl-gateway-… [#7943](https://github.com/habitat-sh/habitat/pull/7943) ([christophermaier](https://github.com/christophermaier)) <!-- 1.6.168 -->
+- Make shorter Builder pages [#7939](https://github.com/habitat-sh/habitat/pull/7939) ([kagarmoe](https://github.com/kagarmoe)) <!-- 1.6.167 -->
+- Add TLS support to the ctl gateway [#7923](https://github.com/habitat-sh/habitat/pull/7923) ([davidMcneil](https://github.com/davidMcneil)) <!-- 1.6.166 -->
+- Updates Hugo, Node modules [#7941](https://github.com/habitat-sh/habitat/pull/7941) ([kagarmoe](https://github.com/kagarmoe)) <!-- 1.6.165 -->
+- Temporarily disable website deploy triggers [#7904](https://github.com/habitat-sh/habitat/pull/7904) ([smacfarlane](https://github.com/smacfarlane)) <!-- 1.6.165 -->
+- add patents notification to `hab` cli [#7937](https://github.com/habitat-sh/habitat/pull/7937) ([sdelano](https://github.com/sdelano)) <!-- 1.6.164 -->
+- eliminate usages of `hab install` alias in plan-build-ps1 [#7938](https://github.com/habitat-sh/habitat/pull/7938) ([mwrock](https://github.com/mwrock)) <!-- 1.6.164 -->
+- Update env_proxy to 0.4.1 [#7933](https://github.com/habitat-sh/habitat/pull/7933) ([christophermaier](https://github.com/christophermaier)) <!-- 1.6.163 -->
 - Fix e2e tests [#7934](https://github.com/habitat-sh/habitat/pull/7934) ([davidMcneil](https://github.com/davidMcneil)) <!-- 1.6.162 -->
 - Cleanup the CLI config file [#7931](https://github.com/habitat-sh/habitat/pull/7931) ([davidMcneil](https://github.com/davidMcneil)) <!-- 1.6.161 -->
 - fix prompting to stop launcher when closing windows docker studio [#7930](https://github.com/habitat-sh/habitat/pull/7930) ([mwrock](https://github.com/mwrock)) <!-- 1.6.160 -->

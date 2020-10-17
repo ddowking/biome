@@ -1,25 +1,36 @@
 +++
-title = "Set up Builder"
-description = "Set up your Builder account online"
+title = "Create an Account"
+description = "Setting up Biome Builder in the Cloud and on your workstation"
 
 [menu]
   [menu.bioitat]
-    title = "Set Up Builder"
-    identifier = "habitat/reference/builder-account"
+    title = "Create an Account"
+    identifier = "habitat/builder/builder-account Builder Account"
     parent = "habitat/builder"
     weight = 20
 
 +++
 
+Whether you are looking to leverage the SaaS or on-prem version of Biome Builder, you will need to create an account on the SaaS version of Biome Builder. After you have then downloaded the version, you will then sync the two accounts.
 
-Setting up your Biome account is easy! All you need is a valid [GitHub account](https://github.com/join).
+## Prerequisites
 
-## Sign-in and Authorize Biome
+You need to set a few things up before you can get started with Biome Builder:
 
-Use the button below to simultaneously sign in to Builder and create your account. Biome Builder uses GitHub for authorization, so you'll see the prompt below authorizing the application.
+* Download and install the [Biome CLI](https://www.habitat.sh/docs/install-habitat/#install-habitat)
+* A [GitHub account](https://github.com/join)
 
-<a href="https://bldr.habitat.sh/#/sign-in" class="button cta" target="_blank">Sign in to Builder</a>
+## Sign-in and Authorize Biome Builder
 
-<img src="/images/screenshots/authorize.png">
+Biome Builder automatically creates your account the first time you sign in using the GitHub authentication process. You'll also need to authorize the Biome Builder application in Github.
 
-Once you have authorized Biome and signed in, you'll arrive at the 'My Origins' view. At this point, other Biome users can invite you to existing origins or you can proceed to create your own (see the next section).
+Head over to the Biome Builder sign-in page at [https://bldr.habitat.sh/#/sign-in](https://bldr.habitat.sh/#/sign-in) to get started.
+
+1. To sign in with an existing GitHub account, select **Sign in with GitHub**
+1. If you need to set up a GitHub account, select the **Sign up here** link
+
+![Biome sign in with Github](/images/screenshots/builder_signin.png)
+
+Signing in with your GitHub account and authorizing the Biome Builder application the first time you sign in grants you access to the Biome Builder platform. Once you've completed signing in and authorizing Biome Builder, you'll arrive at the 'My Origins' view.
+
+![Authorize the Biome Application](/images/screenshots/authorize.png)

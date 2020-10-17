@@ -24,9 +24,3 @@ Biome Builder acts as the core of Chef's Application Delivery Enterprise hub. Bi
 * **Role Based User Access** - Improves your organizations operational safety by letting you assign specific levels of access to each origin member.
 
 For more information on how the SaaS and On-Prem versions of Biome Builder work together, read the blog - [Biome Builder On-Prem Enhancements that Extend Support to Airgap Environments and Simplify Set-Up](https://blog.chef.io/chef-biome-product-announcement-builder-on-prem-enhancements-that-extend-support-to-airgap-environments-and-simplify-set-up/)
-
-## <a name="builder-start" id="builder-start" data-magellan-target="builder-start">Get Started</a>
-
-Whether you are looking to leverage the SaaS or on-prem version of Biome Builder, you will need to create an account on the SaaS version of Biome Builder. After you have then downloaded the version, you will then sync the two accounts.
-
-This documentation covers everything from creating an account to setting up automated builds and exporting packages to a variety of container registries.
