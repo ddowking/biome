@@ -3,7 +3,6 @@ name = "biome_http_client"
 version = "0.0.0"
 edition = "2018"
 authors = ["The Biome Maintainers <humans@biome.sh>"]
-build = "build.rs"
 workspace = "../../"
 
 [dependencies]

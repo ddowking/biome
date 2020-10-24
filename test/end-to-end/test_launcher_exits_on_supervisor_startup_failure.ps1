@@ -15,7 +15,8 @@ bio pkg install biome/bio-launcher
 Describe "Supervisor startup failure" {
     chmod -R a-w $env:FS_ROOT
     $sup = New-Object SupervisorRunner
-    $supPid = $sup.Run("sup.log")
+    $supLog = New-SupervisorLogFile("supervisor_startup_failure")
+    $supPid = $sup.Run($supLog)
 
     It "exits launcher before timeout" {
         $retries=0

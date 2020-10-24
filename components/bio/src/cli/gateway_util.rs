@@ -4,7 +4,7 @@
 use crate::error::Result;
 use futures::stream::StreamExt;
 use biome_common as common;
-use biome_common::{types::ListenCtlAddr,
+use biome_common::{types::ResolvedListenCtlAddr,
                      ui::{UIWriter,
                           UI}};
 use biome_sup_client::{SrvClient,
@@ -24,7 +24,7 @@ use termcolor::{self,
 ///
 /// Unfortunately not all control gateway-interacting functions use
 /// this logic yet.
-pub async fn send(remote_sup_addr: &ListenCtlAddr,
+pub async fn send(remote_sup_addr: Option<&ResolvedListenCtlAddr>,
                   msg: impl Into<SrvMessage> + fmt::Debug)
                   -> Result<()> {
     let mut response = SrvClient::request(remote_sup_addr, msg).await?;
